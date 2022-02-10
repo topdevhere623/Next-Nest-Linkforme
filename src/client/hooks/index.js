@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 const useMediaQuery = (width) => {
   const [targetReached, setTargetReached] = useState(false);
@@ -70,8 +70,8 @@ function iOS() {
 }
 
 function isAndroid() {
-  var ua = navigator.userAgent.toLowerCase();
-  var isAndroid = ua.indexOf('android') > -1; //&& ua.indexOf("mobile");
+  let ua = navigator.userAgent.toLowerCase();
+  let isAndroid = ua.indexOf('android') > -1; //&& ua.indexOf("mobile");
   return isAndroid;
 }
 
@@ -94,7 +94,7 @@ export const usePlatform = () => {
 };
 
 function fallbackCopyTextToClipboard(text) {
-  var textArea = document.createElement('textarea');
+  let textArea = document.createElement('textarea');
   textArea.value = text;
 
   // Avoid scrolling to bottom
@@ -107,8 +107,8 @@ function fallbackCopyTextToClipboard(text) {
   textArea.select();
 
   try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
+    let successful = document.execCommand('copy');
+    let msg = successful ? 'successful' : 'unsuccessful';
     console.log('Fallback: Copying text command was ' + msg);
   } catch (err) {
     console.error('Fallback: Oops, unable to copy', err);

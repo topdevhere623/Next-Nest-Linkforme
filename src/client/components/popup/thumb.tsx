@@ -1,8 +1,8 @@
-import styles from './style.module.sass'
 import Image from 'next/image'
-import UploadSvg from '../../static/upload.svg'
 import { useDispatch } from 'react-redux'
-import {setThumbPic} from 'src/client/store/factory/actions'
+import { setThumbPic } from 'src/client/store/factory/actions'
+import UploadSvg from '../../static/upload.svg'
+import styles from './style.module.sass'
 interface IProps {
     fieldId: string,
     singleEdit: boolean
@@ -12,12 +12,12 @@ const Thumb = ({fieldId, singleEdit}: IProps) => {
     const dispatch = useDispatch();
 
     const imageDialog = () => {
-        var input = document.createElement('input');
+        let input = document.createElement('input');
         input.type = 'file';
         input.accept = "image/png, image/gif, image/jpeg"
 
         input.onchange = (e: any) => {
-            var file = e.target.files[0];
+            let file = e.target.files[0];
 
             if(file?.size > 1000000){
                 alert('File size is limited to 1MB')

@@ -1,7 +1,7 @@
 import {
-  Body, Controller,
-  Get,
-  Param, Post, Render, Req, Res, UseFilters, UseGuards, UseInterceptors
+    Body, Controller,
+    Get,
+    Param, Post, Render, Req, Res, UseFilters, UseGuards, UseInterceptors
 } from '@nestjs/common';
 import { Request, Response } from 'express';
 import { RenderableResponse } from 'nest-next';
@@ -44,7 +44,7 @@ export class AppController {
         
         if(!type) return {}
         
-        var writeStream = this.filesService.createWriteStream(type[0])
+        let writeStream = this.filesService.createWriteStream(type[0])
         
         file.pipe(writeStream);
         

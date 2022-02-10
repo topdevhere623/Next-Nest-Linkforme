@@ -1,9 +1,7 @@
-import styles from './style.module.sass'
-import Image from 'next/image'
-import UploadSvg from '../../static/upload.svg'
+import { SetStateAction, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import {useState, SetStateAction} from 'react'
-import {Lock} from 'src/server/users/interfaces/user.interface'
+import { Lock } from 'src/server/users/interfaces/user.interface'
+import styles from './style.module.sass'
 
 interface IProps {
     data: Lock,
@@ -20,10 +18,10 @@ const BirthDateUnlock = ({next, answer}: {next:()=>void, answer: number}) => {
     const [year, setYear] = useState('');
     const [error, setError] = useState(false)
     const  getAge = (date:string) => {
-        var today = new Date();
-        var birthDate = new Date(date);
-        var age = today.getFullYear() - birthDate.getFullYear();
-        var m = today.getMonth() - birthDate.getMonth();
+        let today = new Date();
+        let birthDate = new Date(date);
+        let age = today.getFullYear() - birthDate.getFullYear();
+        let m = today.getMonth() - birthDate.getMonth();
         if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
             age--;
         }

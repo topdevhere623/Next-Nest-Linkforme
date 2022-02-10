@@ -1,22 +1,21 @@
-import styles from './styles.module.sass';
-import { useDispatch } from 'react-redux';
-import { addField } from 'src/client/store/factory/actions';
-import { ReactElement, useState, SetStateAction, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import Image from 'next/image';
-import useMediaQuery from 'src/client/hooks';
-import Tooltip from 'rc-tooltip';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { motion, AnimatePresence } from 'framer-motion';
-
-import AddLink from '../../static/addLink.svg';
+import Tooltip from 'rc-tooltip';
+import { ReactElement, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import useMediaQuery from 'src/client/hooks';
+import { addField } from 'src/client/store/factory/actions';
 import AddHeader from '../../static/addHeader.svg';
+import AddLink from '../../static/addLink.svg';
 import AddMusic from '../../static/addMusic.svg';
-import AddPayment from '../../static/addPayment.svg';
-import StyleSettings from '../../static/styleSettings.svg';
 import Analytics from '../../static/analitycs.svg';
 import Buttons from '../../static/buttons.svg';
 import Close from '../../static/close.svg';
+import StyleSettings from '../../static/styleSettings.svg';
+import styles from './styles.module.sass';
+
 
 interface IPropsButton {
   text: string;
@@ -39,7 +38,7 @@ export const Button = ({
   isOpen = true,
   active,
 }: IPropsButton) => {
-  var [hover, setHover] = useState(false);
+  let [hover, setHover] = useState(false);
   let iconColor = hover ? '#9D5C82' : '#000';
 
   if (full) {

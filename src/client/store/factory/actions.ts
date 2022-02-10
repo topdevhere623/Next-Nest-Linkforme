@@ -293,7 +293,7 @@ export const updateUser: ThunkCreator<Promise<any>> = (data) => {
 
 export const deleteUser: ThunkCreator<Promise<any>> = (data) => {
   return async () => {
-    var confirmDelete = confirm('Are u sure delete this user?');
+    let confirmDelete = confirm('Are u sure delete this user?');
 
     if (!confirmDelete) {
       return;

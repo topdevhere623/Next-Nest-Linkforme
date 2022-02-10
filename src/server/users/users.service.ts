@@ -1,11 +1,10 @@
-import { Model } from 'mongoose';
-import { Injectable, Inject } from '@nestjs/common';
-import { User, Field, Theme } from './interfaces/user.interface';
-import CreateUserDto from './dto/create-user.dto';
-import { ObjectId } from 'mongoose';
-import { Response } from 'express';
-import { AnalyticService } from '../analytics/analytics.service';
+import { Inject, Injectable } from '@nestjs/common';
 import bcrypt from 'bcrypt';
+import { Response } from 'express';
+import { Model, ObjectId } from 'mongoose';
+import { AnalyticService } from '../analytics/analytics.service';
+import CreateUserDto from './dto/create-user.dto';
+import { Field, Theme, User } from './interfaces/user.interface';
 interface NewFieldsDataProps {
   newFields: Field[]
 }
@@ -42,7 +41,7 @@ export class UsersService {
     return this.userModel.findOne({_id: id}).exec();
   }
   async setFields(data: NewFieldsDataProps, userId: ObjectId): Promise<User | any> {
-    var user = await this.userModel.findOne({_id: userId}).exec();
+    let user = await this.userModel.findOne({_id: userId}).exec();
 
     try {
       if(user){
@@ -57,7 +56,7 @@ export class UsersService {
     return user;
   }
   async updateUser(data: UpdateUserDataProps, userId: ObjectId): Promise<User | any> {
-    var user = await this.userModel.findOne({_id: userId}).exec();
+    let user = await this.userModel.findOne({_id: userId}).exec();
 
     try {
       if(user){
@@ -70,7 +69,7 @@ export class UsersService {
         }
 
         if(data?.email){
-          var userCheck = await this.userModel.findOne({email: data.email}).exec();
+          let userCheck = await this.userModel.findOne({email: data.email}).exec();
           if(!userCheck){
             user.email = data.email;
           }else{
@@ -91,7 +90,7 @@ export class UsersService {
     return await this.userModel.deleteOne({_id: userId})
   }
   async setTheme(newTheme: Theme, userId: ObjectId): Promise<User | any> {
-    var user = await this.userModel.findOne({_id: userId}).exec();
+    let user = await this.userModel.findOne({_id: userId}).exec();
 
     try {
       if(user){
@@ -124,7 +123,7 @@ export class UsersService {
     return {notFound: true}
   }
   async setAvatar(filePath: string, userId: ObjectId): Promise<User | any> {
-    var user;
+    let user;
 
     try {
       user = await this.userModel.findOne({_id: userId}).exec();

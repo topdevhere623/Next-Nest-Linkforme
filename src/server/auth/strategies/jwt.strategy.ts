@@ -1,14 +1,14 @@
 import { Injectable } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { ExtractJwt, Strategy } from 'passport-jwt';
-import { jwtConstants } from '../constants';
+import { Strategy } from 'passport-jwt';
+import { User } from 'src/server/users/interfaces/user.interface';
 import { UsersService } from '../../users/users.service';
-import {User} from 'src/server/users/interfaces/user.interface'
+import { jwtConstants } from '../constants';
 
 type ExistUser = User | null;
 
 export const cookieExtractor = function(req: any) {
-  var token = null;
+  let token = null;
   if (req && req.cookies) token = req.cookies['jwt'];
   return token;
 };
@@ -28,7 +28,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
   async validate(req: any, payload: any, done: any = () => {}):Promise<any> {
     if(!req.user){
       // console.log('payload', payload);
-      var existUser: ExistUser;
+      let existUser: ExistUser;
       if(payload.user){
         existUser = await this.usersService.findOneById(payload.user);
         if(existUser){

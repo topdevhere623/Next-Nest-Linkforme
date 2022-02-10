@@ -1,11 +1,11 @@
-import { Injectable, HttpStatus } from '@nestjs/common';
-import { UsersService } from '../users/users.service';
-import { JwtService } from '@nestjs/jwt';
-import { Response } from 'express';
-import { JwtStrategy } from './strategies/jwt.strategy';
 import { MailerService } from '@nestjs-modules/mailer';
-import { v4 as uuidv4 } from 'uuid';
+import { Injectable } from '@nestjs/common';
+import { JwtService } from '@nestjs/jwt';
 import bcrypt from 'bcrypt';
+import { Response } from 'express';
+import { v4 as uuidv4 } from 'uuid';
+import { UsersService } from '../users/users.service';
+import { JwtStrategy } from './strategies/jwt.strategy';
 interface IUser {
   email: string;
   login: string;
@@ -22,10 +22,10 @@ export interface IErr {
 }
 
 function generatePassword() {
-    var length = 8,
+    let length = 8,
         charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789",
         retVal = "";
-    for (var i = 0, n = charset.length; i < length; ++i) {
+    for (let i = 0, n = charset.length; i < length; ++i) {
         retVal += charset.charAt(Math.floor(Math.random() * n));
     }
     return retVal;
@@ -65,8 +65,8 @@ export class AuthService {
   }
 
   async login(user: IUser, res: Response) {
-    var result: IErr = {success: false};
-    var existUser = await this.validateUser(user.email, user.password);
+    let result: IErr = {success: false};
+    let existUser = await this.validateUser(user.email, user.password);
     // console.log('existUser', existUser)
     if(!existUser){
       result.message = "User does not exist";
@@ -128,7 +128,7 @@ export class AuthService {
 
   async logup(user: IUser, res: Response) {
     try {
-      var result: IErr = {success: false};
+      let result: IErr = {success: false};
       if(!user.login || !user.password || !user.email) return result;
       // const existUser = await this.usersService.findOne(user.login);
       // if(existUser){

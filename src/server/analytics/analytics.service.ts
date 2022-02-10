@@ -1,9 +1,8 @@
-import { Model, ObjectId } from 'mongoose';
-import { Injectable, Inject } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { Document, Model, PopulatedDoc } from 'mongoose';
+import { Field, User } from 'src/server/users/interfaces/user.interface';
 import { Analytic } from './analytics.interfase';
-import CreateAnalyticDto from './dto/create-analytics.dto'
-import {Field, User} from 'src/server/users/interfaces/user.interface'
-import { Document, PopulatedDoc } from 'mongoose';
+import CreateAnalyticDto from './dto/create-analytics.dto';
 
 interface Fields {
     [name: string]: any
@@ -64,7 +63,7 @@ export class AnalyticService {
         }
       }
 
-      for(var key in fields){
+      for(let key in fields){
         result.chart.push({name: key.replace(/^_/g, ''), value: fields[key]})
       }
 

@@ -1,41 +1,37 @@
-import styles from './styles.module.sass';
-import ElementFilter from '../elements';
-import { Field } from 'src/server/users/interfaces/user.interface';
-import { useSelector, useDispatch } from 'react-redux';
-import Image from 'next/image';
-import { IStoreState } from 'src/client/store/reducers';
-import { setEditDone, setAvatar } from 'src/client/store/factory/actions';
-import {
-  DragDropContext,
-  Droppable,
-  Draggable,
-  resetServerContext,
-} from 'react-beautiful-dnd';
 import { motion } from 'framer-motion';
-import Link from '../elements/link';
-
-import MailIcon from '../../static/socialIcons/mail.svg';
-import FacebookIcon from '../../static/socialIcons/facebook.svg';
-import TwitterIcon from '../../static/socialIcons/twitter.svg';
-import TiktokIcon from '../../static/socialIcons/tiktok.svg';
-import InstagramIcon from '../../static/socialIcons/instagram.svg';
-import YoutubeIcon from '../../static/socialIcons/youtube.svg';
-import LinkedinIcon from '../../static/socialIcons/linkedin.svg';
-import SoundcloudIcon from '../../static/socialIcons/soundcloud.svg';
-import BandcampIcon from '../../static/socialIcons/bandcamp.svg';
-import ClubhouseIcon from '../../static/socialIcons/clubhouse.svg';
-import SubstackIcon from '../../static/socialIcons/substack.svg';
-import WhatsappIcon from '../../static/socialIcons/whatsapp.svg';
-import TelegramIcon from '../../static/socialIcons/telegram.svg';
-import SignalIcon from '../../static/socialIcons/signal.svg';
-import TwitchIcon from '../../static/socialIcons/twitch.svg';
-import PatreonIcon from '../../static/socialIcons/patreon.svg';
-import CameoIcon from '../../static/socialIcons/cameo.svg';
-import PinterestIcon from '../../static/socialIcons/pinterest.svg';
-import SpotifyIcon from '../../static/socialIcons/spotify.svg';
+import Image from 'next/image';
+import {
+    DragDropContext, Draggable, Droppable, resetServerContext
+} from 'react-beautiful-dnd';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAvatar, setEditDone } from 'src/client/store/factory/actions';
+import { IStoreState } from 'src/client/store/reducers';
+import { Field } from 'src/server/users/interfaces/user.interface';
 import AmazonIcon from '../../static/socialIcons/amazon.svg';
 import ApplemusicIcon from '../../static/socialIcons/applemusic.svg';
+import BandcampIcon from '../../static/socialIcons/bandcamp.svg';
+import CameoIcon from '../../static/socialIcons/cameo.svg';
+import ClubhouseIcon from '../../static/socialIcons/clubhouse.svg';
+import FacebookIcon from '../../static/socialIcons/facebook.svg';
+import InstagramIcon from '../../static/socialIcons/instagram.svg';
+import LinkedinIcon from '../../static/socialIcons/linkedin.svg';
+import MailIcon from '../../static/socialIcons/mail.svg';
+import PatreonIcon from '../../static/socialIcons/patreon.svg';
+import PinterestIcon from '../../static/socialIcons/pinterest.svg';
+import SignalIcon from '../../static/socialIcons/signal.svg';
 import SnapchatIcon from '../../static/socialIcons/snapchat.svg';
+import SoundcloudIcon from '../../static/socialIcons/soundcloud.svg';
+import SpotifyIcon from '../../static/socialIcons/spotify.svg';
+import SubstackIcon from '../../static/socialIcons/substack.svg';
+import TelegramIcon from '../../static/socialIcons/telegram.svg';
+import TiktokIcon from '../../static/socialIcons/tiktok.svg';
+import TwitchIcon from '../../static/socialIcons/twitch.svg';
+import TwitterIcon from '../../static/socialIcons/twitter.svg';
+import YoutubeIcon from '../../static/socialIcons/youtube.svg';
+import ElementFilter from '../elements';
+import Link from '../elements/link';
+import styles from './styles.module.sass';
+
 
 resetServerContext();
 interface IProps {
@@ -176,12 +172,12 @@ export default function Factory({
   };
 
   const imageDialog = () => {
-    var input = document.createElement('input');
+    let input = document.createElement('input');
     input.type = 'file';
     input.accept = 'image/png, image/gif, image/jpeg, image/svg';
 
     input.onchange = (e: any) => {
-      var file = e.target.files[0];
+      let file = e.target.files[0];
 
       if(file?.size > 1000000){
         alert('File size is limited to 1MB')

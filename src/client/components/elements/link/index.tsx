@@ -1,4 +1,4 @@
-import { ReactNode, MouseEvent } from 'react';
+import { MouseEvent, ReactNode } from 'react';
 import { usePlatform } from 'src/client/hooks';
 import { Field } from 'src/server/users/interfaces/user.interface';
 import { isValidHttpUrl } from 'src/shared/utils/fetch';
@@ -10,20 +10,20 @@ interface IProps {
 }
 
 export default function Link({ children, data, precall }: IProps) {
-  var link = data.link;
+  let link = data.link;
   if (data._id) {
     link = '/link/' + data._id;
   }
 
   const platform = usePlatform(),
     openNewtab = (link: string) => {
-      var element: any = document.createElementNS(
+      const element: any = document.createElementNS(
         'http://www.w3.org/1999/xhtml',
         'a',
       );
       element.href = link;
       element.target = '_blank';
-      var event = new MouseEvent('click', {
+      const event = new MouseEvent('click', {
         view: window,
         bubbles: false,
         cancelable: true,
@@ -56,7 +56,7 @@ export default function Link({ children, data, precall }: IProps) {
 
       if (platform === 'android') {
         preventDefault();
-        let formatedLink = link.replace(/(https|http)\:\/\//g, '');
+        const formatedLink = link.replace(/(https|http)\:\/\//g, '');
         // document.location.href=
         openNewtab(
           `intent://${formatedLink}#Intent;scheme=https;package=com.android.chrome;end`,

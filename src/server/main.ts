@@ -1,9 +1,9 @@
 import { NestFactory } from '@nestjs/core';
+import cookieParser from 'cookie-parser';
+import { json, urlencoded } from 'express';
 import { PORT } from 'src/shared/constants/env';
 import { AppModule } from './app.module';
-import cookieParser from 'cookie-parser';
-import { urlencoded, json } from 'express';
-var busboy = require('connect-busboy');
+let busboy = require('connect-busboy');
 
 declare const module: any;
 

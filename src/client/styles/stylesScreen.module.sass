@@ -1,0 +1,480 @@
+@import 'media-queries'
+
+.wrapper
+    display: flex
+    flex-direction: column
+    flex: 1
+    height: 100%
+    overflow: auto
+    font-family: Open Sans
+
+    h1
+        font-style: normal
+        font-weight: 600
+        font-size: 24px
+        line-height: 33px
+        color: #262626
+        margin-bottom: 30px
+        vertical-align: middle
+
+    h2
+        font-family: Open Sans
+        font-style: normal
+        font-weight: normal
+        font-size: 16px
+        line-height: 22px
+        color: #EAD2C4
+
+.pro
+    color: #FFFFFF
+    padding: 6px 10px
+    background: #FF5B5B
+    border-radius: 4px
+    margin-left: 10px
+    font-size: 14px
+    vertical-align: middle
+
+.grid
+    width: calc(100% + 10px)
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(134px, 1fr))
+    grid-gap: 15px
+    justify-content: center
+    align-items: flex-start
+    // display: inline-flex
+    // flex-wrap: wrap
+    // margin: -10px 0 0 -10px
+    // gap: 10px
+
+    .nameTheme
+        width: 124px
+        text-align: center
+        padding: 5px
+
+        &.active
+            color: #9D5C82
+
+        &.inactive
+            color: #EAD2C4
+
+    .item
+        width: 134px
+        height: 234px
+        border-radius: 4px
+        position: relative
+        cursor: pointer
+
+        .proWrapper
+            position: absolute
+            top: 20px
+            left: 10px
+
+        .background
+            display: flex
+            flex: 1
+            background: #FFF5ED
+            margin: 8px
+            height: calc(100% - 16px)
+            border-radius: 4px
+
+
+        &.dashed
+            border: 2px dashed #B78467
+            border-radius: 10px
+
+        &.active
+            border: 2px solid #9D5C82
+            border-radius: 10px
+            cursor: default
+
+            .background
+                background: #fff
+
+        &.default
+            background: #FFF5ED
+            border-radius: 10px
+            padding: 2px
+
+        &.blank
+            .background
+                background: #B78467
+
+        .newThemeWrapper
+            display: flex
+            flex: 1
+            height: calc(100% - 36px)
+            flex-direction: column
+            justify-content: flex-end
+            padding: 18px
+
+            .icon
+                margin-bottom: 10px
+
+        .threeButtonsWrapper
+            display: flex
+            flex: 1
+            height: 100%
+            flex-direction: column
+            align-items: center
+            justify-content: center
+            background-color: #fff
+            border-radius: 5px
+            background-size: cover !important
+            background-position: center !important
+
+            & div
+                border-radius: 4px
+                background: #9D5C82
+                margin-bottom: 14px
+                width: 100px
+                height: 20px
+
+                &:first-child
+                    margin-top: 50px
+
+                &:last-child
+                    margin: 0
+
+            &.theme1
+                background: url(/static/theme/backgrounds/theme1.jpg)
+
+                & div
+                    background: #FFFFFF
+
+            &.theme2
+                background: url(/static/theme/backgrounds/theme2.jpg)
+
+                & div
+                    background: #189EB9
+
+            &.theme3
+                background: linear-gradient(167.77deg, #711C4D 0.01%, #58406B 39.45%, #189EB9 99.99%)
+
+                & div
+                    background: transparent
+                    border: 1px solid #FFFFFF
+
+            &.theme4
+                background: #FBC320
+
+                & div
+                    background: #EF764B
+                    border-radius: 100px
+
+            &.theme5
+                background: url(/static/theme/backgrounds/theme5.jpg)
+
+                & div
+                    border-radius: 100px
+
+                & div:nth-child(1)
+                    background: #11BC8F
+
+                & div:nth-child(2)
+                    background: #D84BEF
+
+                & div:nth-child(3)
+                    background: #FF5B5B
+
+            &.theme6
+                background: url(/static/theme/backgrounds/theme6.jpg)
+
+                & div
+                    background: white
+                    border-radius: 100px
+
+            &.theme7
+                background: linear-gradient(180deg, #7CFEE7 0.02%, #0D8D9E 99.98%)
+
+                & div
+                    background: transparent
+                    border: 1px solid #FFFFFF
+                    border-radius: 100px
+
+            &.theme8
+                background: #FFE4D4
+
+                & div
+                    background: #B78467
+                    border-radius: 0
+
+            &.theme9
+                background: url(/static/theme/backgrounds/theme9.jpg)
+
+                & div
+                    background: #4A67A0
+                    border-radius: 0
+
+            &.theme10
+                background: url(/static/theme/backgrounds/theme10.jpg)
+
+                & div
+                    background: #fff
+                    border-radius: 0
+
+            &.theme11
+                background: linear-gradient(180deg, #EF764B 0.02%, #FFF279 99.98%)
+
+                & div
+                    background: transparent
+                    border: 1px solid #000
+                    border-radius: 0
+
+            &.theme12
+                background: #fff
+
+                & div
+                    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15)
+                    border: 1px solid #189EB9
+                    background: #fff
+                    border-radius: 100px
+
+            &.theme13
+                background: #FF5B5B
+
+                & div
+                    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15)
+                    border: 1px solid #fff
+                    background: #FF5B5B
+
+            &.theme14
+                background: radial-gradient(134.3% 62.52% at 50% 37.47%, #D84BEF 0%, #FFB4EA 100%)
+
+                & div
+                    background: #fff
+                    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15)
+                    border: 1px solid #8E49A7
+
+            &.theme15
+                background: #39CCE0
+
+                & div
+                    background: #04A1B7
+                    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15)
+                    border-radius: 100px
+
+            &.theme16
+                background: #ED7EFF
+
+                & div
+                    border-radius: 0
+
+                & div:nth-child(1)
+                    background: #B634CB
+                    border: 1px solid #9226B8
+                    box-shadow: 3px 3px 0px 1px #9226B8
+
+                & div:nth-child(2)
+                    background: #FF5B5B
+                    border: 1px solid #B93636
+                    box-shadow: 3px 3px 0px 1px #B93636
+
+                & div:nth-child(3)
+                    background: #FEB700
+                    border: 1px solid #AD6129
+                    box-shadow: 3px 3px 0px 1px #AD6129
+
+            &.theme17
+                background: #C4C4C4
+
+                & div
+                    background: #C4C4C4
+                    border-radius: 0
+                    position: relative
+                    border: 1px solid #878686
+
+                    &:after
+                        position: absolute
+                        display: block
+                        content: ""
+                        width: 90%
+                        height: 140%
+                        border: 1px solid #878686
+                        margin-top: -5%
+                        margin-left: 5%
+
+            &.theme18
+                background: url(/static/theme/backgrounds/theme18.jpg)
+
+                & div
+                    background: #C70584
+                    border-radius: 100px
+                    border: 1px solid #880062
+                    box-shadow: 3px 3px 0px 1px #880062
+
+            &.theme19
+                background: #EF764B
+
+                & div
+                    background: #FFB68D
+                    border-radius: 100px 0px 0px 100px
+
+        .imageWrapper
+            display: flex
+            height: 100%
+            width: 100%
+            position: relative
+
+        &.inactive
+            color: #EAD2C4
+
+            &.dashed
+                border-color: #EAD2C4
+
+.fill1
+    width: 150px
+    height: 50px
+    background: #FFF5ED
+    border: 2px solid #FFF5ED
+    border-radius: 10px
+
+.fill2
+    width: 150px
+    height: 50px
+    background: #FFF5ED
+    border: 2px solid #FFF5ED
+
+.fill3
+    width: 150px
+    height: 50px
+    background: #FFF5ED
+    border: 2px solid #FFF5ED
+    border-radius: 100px
+
+.outline1
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    border-radius: 10px
+
+.outline2
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+
+.outline3
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    border-radius: 100px
+
+.hardShadow1
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    border-radius: 10px
+    box-shadow: 5px 5px 0px 1px #FFF5ED
+
+.hardShadow2
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    box-shadow: 5px 5px 0px 1px #FFF5ED
+
+.hardShadow3
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    border-radius: 100px
+    box-shadow: 5px 5px 0px 1px #FFF5ED
+
+.softShadow1
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    border-radius: 10px
+    box-shadow: 0px 5px 7px 1px #fff5ed
+
+.softShadow2
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    box-shadow: 0px 5px 7px 1px #fff5ed
+
+.softShadow3
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    border-radius: 100px
+    box-shadow: 0px 5px 7px 1px #fff5ed
+
+.special1
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    background: #FFF5ED
+    border-radius: 100px 0px 0px 100px
+
+.special2
+    margin-top: 5px
+    width: 150px
+    height: 40px
+    left: 0px
+    top: 5px
+    border: 2px solid #FFF5ED
+
+    &::after
+        display: block
+        content: ""
+        width: 140px
+        height: 50px
+        border: 2px solid #FFF5ED
+        margin-top: -7px
+        margin-left: 3px
+
+.special3
+    width: 150px
+    height: 50px
+    border: 2px solid #FFF5ED
+    border-radius: 100px
+    box-shadow: 0px 5px 7px 1px #fff5ed
+    background: #FFF5ED
+
+.fontExample
+    width: 150px
+    height: 150px
+    background: #FFF5ED
+    border-radius: 10px
+    display: flex
+    align-items: center
+    justify-content: center
+    font-size: 60px
+    color: #EAD2C4
+
+
+.header
+    flex-wrap: wrap
+    padding-top: 18px
+    padding-left: 30px
+    padding-right: 28px
+
+    @include xs
+        .logo
+            font-size: 23px
+
+        .burger
+            width: 20px
+            height: 20px
+
+        .myLink
+            margin-right: 0
+
+        button
+            font-size: 15px
+            padding: 6px 10px
+
+        .menu
+            padding: 0
+            margin-bottom: 0
+            justify-content: space-between
+
+            li
+                font-size: 16px
+                padding: 10px
+                margin: 0 3px
+
+
+.wrapper
+    @include xs
+        height: auto
+        overflow: initial

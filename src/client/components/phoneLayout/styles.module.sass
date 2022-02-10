@@ -1,0 +1,23 @@
+@import 'media-queries'
+
+.phone
+    position: relative
+    border-radius: 35px
+    width: 350px
+    height: 700px
+    border: 15px solid
+    background: white
+    // filter: drop-shadow(0px 20px 30px #DDB69F)
+    box-shadow: 0px 20px 30px #ddb69f7e
+    margin: 35px
+    overflow: hidden
+
+    @include xs
+        width: 280px
+        height: 600px
+
+    @include md
+        width: 250px
+        height: 530px
+        border-radius: 30px
+        border-width: 10px

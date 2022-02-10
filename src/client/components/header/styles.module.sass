@@ -1,0 +1,219 @@
+@import 'media-queries'
+
+.header
+    // position: fixed
+    position: relative
+    z-index: 1
+    top: 0
+    left: 0
+    padding: 10px 36px
+    background: white
+    display: flex
+    flex-direction: row
+    justify-content: space-between
+    align-items: center
+    // filter: drop-shadow(0px 4px 12px #F3DED2)
+    box-shadow: 0px 4px 12px #ddb69f7e
+
+    .burger
+        width: 28px
+        height: 20px
+        position: relative
+        margin-right: 20px
+        cursor: pointer
+
+        &.close
+            transform: scale(-1, -1)
+
+    .logo
+        font-family: Open Sans
+        font-style: normal
+        font-weight: bold
+        font-size: 30px
+        line-height: 24px
+
+    .menu
+        flex: 1
+        display: flex
+        flex-direction: row
+        list-style: none
+        transition: margin 0.3s ease
+
+        &.menuIsClose
+            margin: 0
+
+        li
+            cursor: pointer
+            font-family: Open Sans
+            font-style: normal
+            font-weight: 600
+            font-size: 18px
+            line-height: 24px
+            padding: 13px
+            margin: 0 21px
+            color: #262626
+            transition: all .3s ease
+            display: flex
+            align-items: center
+            text-align: center
+
+            &.active
+                cursor: default
+                background: #FFF4ED
+                border-radius: 10px
+                color: #9D5C82
+
+    .myLink
+        margin-right: 20px
+        font-family: Open Sans
+        font-style: normal
+        font-weight: 600
+        font-size: 16px
+        line-height: 22px
+        color: #000000
+        display: flex
+
+        a
+            margin-left: 10px
+            display: inline-block
+
+        span
+            width: 152px
+            display: block
+            overflow: hidden
+            font-weight: 400
+            white-space: nowrap
+            text-overflow: ellipsis
+
+    button
+        padding: 9px 18px
+        border-radius: 10px
+        border: 2px solid #9D5C82
+        background: white
+        font-family: Open Sans
+        font-style: normal
+        font-weight: 600
+        font-size: 16px
+        line-height: 22px
+        color: #9D5C82
+        cursor: pointer
+        transition: all .3s ease
+
+        &:hover
+            color: white
+            background: #9D5C82
+
+.header
+    flex-wrap: wrap
+    padding-top: 18px
+    padding-left: 30px
+    padding-right: 28px
+
+    @include xs
+        .logo
+            font-size: 23px
+
+        .burger
+            width: 20px
+            height: 20px
+
+        .myLink
+            margin-right: 0
+
+        button
+            font-size: 15px
+            padding: 6px 10px
+
+        .menu
+            padding: 0
+            margin-bottom: 0
+            justify-content: space-between
+            margin-left: -10px !important
+            margin-right: -10px !important
+            margin-top: 10px !important
+
+            li
+                font-size: 16px
+                padding: 10px
+                margin: 0 3px
+
+
+.header
+    @include lg
+        padding: 12px 23px 12px 30px
+
+        .logo
+            font-size: 26px
+
+        .menu
+            padding: 0
+            margin: 0
+            margin-left: 130px
+
+            li
+                font-size: 15px
+
+        .myLink
+            font-size: 14px
+
+        button
+            padding: 5px 14px
+            font-size: 13px
+
+.header
+    @include md
+        padding: 12px 23px 12px 30px
+
+        .logo
+            font-size: 26px
+
+        .menu
+            padding: 0
+            margin: 0
+            margin-left: 140px
+
+            li
+                font-size: 15px
+
+        .myLink
+            font-size: 14px
+
+            span
+                width: 149px
+
+        button
+            padding: 5px 14px
+            font-size: 13px
+
+.header
+    @include sm
+        padding: 12px 23px 12px 30px
+
+        .logo
+            font-size: 26px
+
+        .menu
+            padding: 0
+            margin: 0
+            margin-left: 130px
+
+            li
+                font-size: 15px
+
+        .myLink
+            font-size: 14px
+
+        button
+            padding: 5px 14px
+            font-size: 13px
+
+.header
+    @include sm
+        .menu
+            margin-left: 0
+
+            li
+                margin: 0 10px
+
+        .myLink a span
+            width: 50px

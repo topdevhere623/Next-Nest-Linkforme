@@ -1,0 +1,98 @@
+@import 'media-queries'
+
+.wrapper
+    display: flex
+    flex-direction: column
+    flex: 1
+    height: 100%
+    overflow: auto
+
+.row
+    display: flex
+    width: 100%
+    font-size: 20px
+    flex-wrap: wrap
+    gap: 10px
+
+.myInformation
+    input
+        width: auto
+        display: flex
+        flex: 1
+
+.footer .row
+    justify-content: center
+    gap: 20px
+
+    & div[data-el="button"]:last-child
+        border-color: #FF5B5B !important
+
+        & > div
+            color: #FF5B5B !important
+
+        &:hover
+            background-color: #FF5B5B !important
+
+        &:hover > div
+            color: white !important
+
+.currentAccount .row
+    justify-content: space-between
+    // margin-left: -10px
+    // margin-right: -10px
+    flex-wrap: wrap
+
+    &[data-el="owners"]
+
+        @include xs
+            gap: 50px
+
+            .column:nth-child(2)
+                text-align: right
+
+            .deleteElement
+                display: flex
+                justify-content: flex-end
+
+
+    div[data-el="button"]
+        flex: auto
+
+        // @include lt-md
+        //     flex: auto
+
+        // @include xs
+        //     width: 100%
+        //     flex: auto
+
+    // div[data-el="button"]:last-child
+    //     margin-right: 0
+
+    // div[data-el="button"]:first-child
+    //     margin-left: 0
+
+    .column
+        margin: 0 10px
+        flex: auto
+
+        // @include xs
+        //     width: 100%
+        //     flex: auto
+
+    .headline
+        font-size: 14px
+        line-height: 19px
+        color: #B78467
+        margin-bottom: 10px
+        margin-top: 10px
+
+    .value
+        font-size: 16px
+        color: #262626
+
+.upgrade
+    font-size: 14px
+    line-height: 19px
+    color: #B78467
+    margin: 20px 0
+

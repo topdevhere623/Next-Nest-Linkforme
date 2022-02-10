@@ -1,0 +1,47 @@
+@import 'media-queries'
+
+.blurWrapper
+    position: relative
+
+    &:after
+        display: block
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+.button
+    width: 100%
+    height: 50px
+    border: 0
+    cursor: pointer
+    transition: all .3s ease
+    color: #fff
+    display: flex
+    align-items: center
+    justify-content: center
+    position: relative
+
+    &.blur
+        filter: blur(4px)
+
+    .text
+        text-decoration: none
+        outline: none
+
+    .thumb
+        width: 15px
+        height: 15px
+        position: absolute
+        left: 10px
+
+    .lock
+        width: 15px
+        height: 15px
+        position: absolute
+        right: 10px
+
+    @include md
+        height: 37px

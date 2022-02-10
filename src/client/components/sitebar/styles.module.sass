@@ -1,0 +1,223 @@
+@import 'media-queries'
+
+.sitebarWrapper
+    display: flex
+
+    &.hideMobile .sitebar
+        transition: initial !important
+
+
+.sitebar
+    float: left
+    background: #FFF5ED
+    display: flex
+    flex-direction: column
+    justify-content: space-between
+    margin-right: 20px
+    width: 380px
+    // filter: drop-shadow(4px 0px 12px rgba(243, 222, 210, 0.25))
+    box-shadow: 4px 0px 12px rgba(243, 222, 210, 0.25)
+    transition: width .2s ease
+
+    .top
+        display: flex
+        flex-direction: column
+        margin-top: 34px
+        padding: 0 35px
+
+        .space
+            height: 72px
+
+    .bottom
+        display: flex
+        border-top: 1px solid #EAD2C4
+        padding: 28px 48px
+
+        .faq
+            margin-right: 15px
+
+        .faq, .blog
+            cursor: pointer
+            position: relative
+            height: 27px
+            width: 23px
+
+.button
+    margin-bottom: 18px
+    display: flex
+    padding: 15px
+    cursor: pointer
+    border-radius: 10px
+    transition: all .1s ease
+    overflow: hidden
+
+    &:hover
+        background: white
+
+        .textWrapper
+            color: #9D5C82
+
+    .iconWrapper
+        margin-right: 20px
+        position: relative
+        width: 20px
+        height: 20px
+
+    .textWrapper
+        font-family: Open Sans
+        font-style: normal
+        font-weight: 600
+        font-size: 16px
+        line-height: 20px
+        color: #262626
+        transition: color .3s ease, opacity .2s ease
+        white-space: nowrap
+
+.buttonFull
+    border: 2px solid #9D5C82
+    justify-content: center
+
+    .textWrapper
+            color: #9D5C82
+
+    &.active
+        background: #9D5C82
+
+        .textWrapper
+            color: #fff
+
+    &:hover
+        background: #9D5C82
+
+        .textWrapper
+            color: #fff
+
+.sitebar
+    &.close
+        width: 120px
+
+        .iconWrapper
+            margin-right: 0 !important
+
+
+        .textWrapper
+            // display: none
+            position: absolute
+            visibility: hidden
+            opacity: 0 !important
+
+        .bottom
+            flex-direction: column
+            align-items: center
+
+            .faq
+                margin: 0 !important
+                margin-bottom: 16px !important
+
+    &.defaultClose
+        @include lt-lg
+            width: 120px
+
+            .iconWrapper
+                margin-right: 0 !important
+
+
+            .textWrapper
+                // display: none
+                position: absolute
+                visibility: hidden
+                opacity: 0 !important
+
+            .bottom
+                flex-direction: column
+                align-items: center
+
+                .faq
+                    margin: 0 !important
+                    margin-bottom: 16px !important
+
+.sitebarWrapper
+    @include xs
+        z-index: 11
+        position: fixed
+        top: 0
+        width: 100vw
+        height: 100vh
+        background: rgba(0, 0, 0, 0.5)
+        transition: opacity .2s ease, bottom 1s ease
+
+        &.hideMobile
+            display: none
+
+        &.close
+            transition: opacity 1s ease, bottom 1s ease
+            top: initial !important
+            bottom: -100%
+            opacity: 0
+
+.sitebar
+    @include lg
+        width: 338px
+
+        .top
+            padding: 0 33px
+            margin-top: 30px
+
+            .space
+                    height: 65px
+
+            .button
+                padding: 10px
+
+        .bottom
+            padding: 25px 33px
+
+.sitebar
+    @include xs
+        width: 100%
+        position: fixed
+        left: 0
+        bottom: 0
+        border-radius: 25px 25px 0px 0px
+        transition: all .3s ease
+
+        &.close
+            bottom: -120%
+            width: 100%
+
+        .space
+            height: 25px !important
+
+        .headMobile
+            display: flex
+            padding: 25px 35px 0
+            justify-content: space-between
+            align-items: center
+
+            .close
+                zoom: .8
+
+            .headline
+                font-family: Open Sans
+                font-style: normal
+                font-weight: normal
+                font-size: 20px
+                line-height: 40px
+                color: #262626
+
+        .bottom
+            justify-content: center
+
+        .button
+            padding-left: 5px !important
+
+        .textWrapper
+                font-size: 14px !important
+
+        .iconWrapper
+            transform: scale(0.8)
+            margin-right: 12px !important
+
+        .buttonFull
+            padding: 12px !important
+            margin-bottom: 13px !important

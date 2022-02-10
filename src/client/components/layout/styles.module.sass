@@ -1,0 +1,32 @@
+@import 'media-queries'
+
+.layout
+    display: flex
+    height: 100vh
+    width: 100%
+    flex-direction: column
+
+    @include xs
+        height: auto
+
+.wrapper
+    display: flex
+    height: 100%
+    width: 100%
+    overflow-y: auto
+
+    @include xs
+        height: auto
+
+
+.content
+    display: flex
+    flex: 1
+    align-items: center
+    justify-content: center
+    overflow-y: auto
+
+    @include xs
+        height: 100%
+        align-items: inherit
+        // flex-direction: column

@@ -1,0 +1,359 @@
+@import 'media-queries'
+
+.popupWrapper
+    opacity: 0
+    position: fixed
+    left: 0
+    top: 0
+    z-index: 99
+    width: 100%
+    height: 100%
+    background: rgba(0,0,0,0.5)
+    display: flex
+    align-items: center
+    justify-content: center
+
+    &.noOverflow
+        background: transparent
+        box-shadow: 0px 6px 12px #ddb69f7e
+
+    @include xs
+        align-items: flex-end
+
+.overflow
+    // border-radius: 30px
+    overflow: hidden
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15)
+
+    // @include xs
+    //     border-bottom-left-radius: 0px
+    //     border-bottom-right-radius: 0px
+
+.errorBlock
+    background: #FF5B5B
+    width: calc(100% - 20px)
+    text-align: center
+    padding: 5px 10px
+    color: white
+    border-radius: 10px
+    margin-bottom: 15px
+
+.popupWindow
+    position: relative
+    background: #FFFFFF
+    font-family: Open Sans
+    padding: 30px 45px 45px 40px
+    z-index: 9999
+    width: 650px
+    max-height: 650px
+    overflow: auto
+    border-radius: 30px
+
+    @include xs
+        border-bottom-left-radius: 0px
+        border-bottom-right-radius: 0px
+
+    &.confirm_cookies
+        @include xs
+            bottom: 0 !important
+            right: 0 !important
+
+    h1
+        font-family: Open Sans
+        font-style: normal
+        font-weight: 600
+        font-size: 30px
+        line-height: 41px
+        color: #262626
+
+        @include xs
+            padding-right: 15px
+
+    .close
+        width: 50px
+        height: 50px
+        top: 50px
+        right: 10px
+        color: #000
+        transform: rotate(45deg)
+        cursor: pointer
+        position: absolute
+        font-size: 45px
+
+    .row
+        display: flex
+        align-items: center
+        margin-bottom: 35px
+
+        &:last-child
+            margin: 0
+
+
+    .confirmCookies
+        h1
+            font-size: 18px
+            margin-bottom: 0
+            line-height: 30px
+
+        .declineButton
+            background: transparent
+            color: #9D5C82
+
+            &:hover
+                background: #9D5C82
+                color: #fff
+
+    .thumb
+
+        .optionIcon
+            position: relative
+            width: 80px
+            height: 80px
+            background: #9D5C82
+            border-radius: 10px
+            display: flex
+            justify-content: center
+            align-items: center
+            margin-right: 30px
+
+            &.gray
+                width: 75px
+                height: 75px
+                background: #E5E5E5
+                border: 5px solid #E5E5E5
+
+        .headline
+            cursor: pointer
+            font-family: Open Sans
+            font-style: normal
+            font-weight: 600
+            font-size: 18px
+            line-height: 24px
+            color: #262626
+            margin-bottom: 10px
+
+            .purple
+                color: #9D5C82
+
+            &:hover
+                text-decoration: underline
+
+        .description
+            font-family: Open Sans
+            font-style: normal
+            font-weight: normal
+            font-size: 16px
+            line-height: 22px
+            color: #262626
+    .thumbSet
+
+        input
+            width: calc(100% - 31px)
+            border: 1px solid #EAD2C4
+            border-radius: 10px
+            font-family: Open Sans
+            font-style: normal
+            font-weight: normal
+            font-size: 18px
+            line-height: 24px
+            color: #B78467
+            text-align: left
+            padding: 13px 20px 13px 18px
+            margin-bottom: 35px
+
+        .icons
+            display: flex
+            flex-wrap: wrap
+            // justify-content: space-between
+
+            .icon
+                display: flex
+                align-items: center
+                justify-content: center
+                background: #FFF5ED
+                border-radius: 10px
+                width: 80px
+                height: 80px
+                overflow: hidden
+                margin: 6.4px
+                cursor: pointer
+
+                &:hover
+                    width: 76px
+                    height: 76px
+                    border: 2px solid #9D5C82
+
+                .wrapper
+                    width: 30px
+                    height: 30px
+                    position: relative
+
+    .unlock
+
+        .month, .day
+            margin-right: 10px
+            width: 70px
+
+        .year
+            width: 150px
+
+        .error
+            font-family: Open Sans
+            color: red
+            width: 290px
+            font-size: 12px
+
+        .continueButton
+            cursor: pointer
+            font-family: Open Sans
+            padding: 10px
+            background: #9D5C82
+            color: #fff
+            border: 2px solid #9D5C82
+            border-radius: 10px
+            margin-top: 15px
+            margin-right: 10px
+            transition: all .3s ease
+
+        .pagination
+            font-family: Open Sans
+
+    .lock
+        input[type="checkbox"]
+            margin-right: 10px
+
+        .row
+            align-items: center
+            margin-bottom: 0
+
+        hr
+            margin-top: 15px
+            border-color: #ccc
+            border-width: 0
+            border-bottom-width: 1px
+
+        .wrapper
+            border-radius: 5px
+            padding: 10px
+            border: 1px solid #ccc
+            margin-bottom: 10px
+
+            p
+                width: 300px
+                font-size: 15px
+
+        .headline
+            font-size: 20px
+            font-weight: bold
+
+        input[type="text"], input[type="number"]
+            border: 2px solid #9D5C82
+            padding: 10px
+            border-radius: 5px
+            height: 15px
+            width: 150px
+            margin: 0
+            margin-left: 50px
+            text-align: left
+
+        button
+            width: 150px
+            cursor: pointer
+            font-family: Open Sans
+            padding: 10px
+            background: #9D5C82
+            color: #fff
+            border: 2px solid #9D5C82
+            border-radius: 10px
+            margin-top: 15px
+            margin-right: 10px
+            transition: all .3s ease
+
+    .clock
+
+        input[type="checkbox"]
+            margin-right: 10px
+
+        .row
+            align-items: center
+            margin-bottom: 0
+
+        hr
+            margin-top: 15px
+            border-color: #ccc
+            border-width: 0
+            border-bottom-width: 1px
+
+        .wrapper
+            border-radius: 5px
+            padding: 10px
+            border: 1px solid #ccc
+            margin-bottom: 10px
+
+            p
+                width: 300px
+                font-size: 15px
+
+        .headline
+            font-size: 20px
+            font-weight: bold
+
+        .save
+            width: 150px
+            cursor: pointer
+            font-family: Open Sans
+            padding: 10px
+            background: #9D5C82
+            color: #fff
+            border: 2px solid #9D5C82
+            border-radius: 10px
+            margin-top: 15px
+            margin-right: 10px
+            transition: all .3s ease
+
+    .resetPassword
+        display: flex
+        flex-direction: column
+
+        input[type="submit"]
+            width: 100%
+
+        input.inputError
+            border-color: #FF5B5B !important
+
+            &::placeholder
+                color: #e74a4a !important
+
+    @include xs
+        width: calc(100% - 45px) !important
+        padding: 10px 25px 25px 20px
+
+        h1
+            font-size: 22px
+            line-height: 32px
+
+        .unlock .day, .unlock .month
+            width: 60px
+
+        .unlock .year
+            width: 120px
+
+        .close
+            top: 18px
+
+        .thumb
+            .optionIcon
+                width: 60px
+                height: 60px
+                flex-shrink: 0
+
+                &.gray
+                    width: 57px
+                    height: 57px
+
+        .thumbSet
+            input
+                height: 10px
+            .icon
+                width: 60px !important
+                height: 60px !important

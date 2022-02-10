@@ -1,0 +1,125 @@
+@import 'media-queries'
+
+.wrapper
+    display: flex
+    align-items: center
+    justify-content: center
+    flex-direction: column
+    height: auto
+    min-height: 100vh
+    font-family: Open Sans
+    overflow: auto
+
+    .errorBlock
+        background: #FF5B5B
+        width: calc(100% - 20px)
+        text-align: center
+        padding: 5px 10px
+        color: white
+        border-radius: 10px
+        margin-bottom: 15px
+
+    h1
+        font-size: 40px
+        margin-bottom: 76px
+
+        @include xs
+            margin-bottom: 30px
+
+    input[type="text"], input[type="password"]
+        width: 400px
+        height: 50px
+        border: 1px solid #EAD2C4
+        border-radius: 10px
+        text-align: left
+        padding-left: 18px
+        margin-bottom: 20px
+
+        &:focus
+            border-color: #B78467
+
+        &.inputError
+            border-color: #FF5B5B !important
+
+            &::placeholder
+                color: #e74a4a !important
+
+        @include xs
+            width: 280px
+
+    input[type="submit"]
+        border: 2px solid #9D5C82
+        background: #fff
+        color: #9D5C82
+        width: 420px
+
+        &:hover
+            background: #9D5C82
+            color: #fff
+
+        @include xs
+            width: 300px
+
+
+    .formInsideContainer
+        display: flex
+        flex-direction: column
+        padding: 46px 40px 62px 40px
+        border-radius: 15px
+        background: white
+        // filter: drop-shadow(0px 20px 30px #DDB69F)
+        box-shadow: 0px 20px 30px #ddb69f7e
+        align-items: center
+        margin-bottom: 20px
+
+        p
+            text-align: center
+            width: 420px
+
+        @include xs
+            padding: 26px 20px 22px 20px
+
+            p
+                width: 300px
+
+    .restore
+        margin-top: 40px
+        font-size: 16px
+        line-height: 22px
+        text-align: center
+        text-decoration-line: underline
+        color: #9D5C82
+        cursor: pointer
+
+    .restoreTimeout
+        margin-top: 40px
+        font-size: 16px
+        line-height: 22px
+        text-align: center
+        color: #9D5C82
+
+    .menu
+        flex: 1
+        display: flex
+        flex-direction: row
+        list-style: none
+        margin-bottom: 40px
+        padding: 0
+
+        li
+            cursor: pointer
+            font-family: Open Sans
+            font-style: normal
+            font-weight: 600
+            font-size: 18px
+            line-height: 24px
+            padding: 13px
+            margin: 0 21px
+            color: #262626
+            transition: all .3s ease
+
+            &.active
+                cursor: default
+                background: #FFF4ED
+                border-radius: 10px
+                color: #9D5C82

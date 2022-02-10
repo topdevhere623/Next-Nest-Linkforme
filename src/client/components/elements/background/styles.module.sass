@@ -1,0 +1,99 @@
+@import 'media-queries'
+
+.background
+    display: flex
+    justify-content: center
+    height: 100%
+    background-size: cover !important
+    background-position: center !important
+
+    &.default
+        background: #fff
+
+    &.theme1
+        background: url(/static/theme/backgrounds/theme1.jpg)
+
+    &.theme2
+        background: url(/static/theme/backgrounds/theme2.jpg)
+
+    &.theme3
+        background: linear-gradient(167.77deg, #711C4D 0.01%, #58406B 39.45%, #189EB9 99.99%)
+
+    &.theme4
+        background: #FBC320
+
+    &.theme5
+        background: url(/static/theme/backgrounds/theme5.jpg)
+
+    &.theme6
+        background: url(/static/theme/backgrounds/theme6.jpg)
+
+    &.theme7
+        background: linear-gradient(180deg, #7CFEE7 0.02%, #0D8D9E 99.98%)
+
+    &.theme8
+        background: #FFE4D4
+
+    &.theme9
+        background: url(/static/theme/backgrounds/theme9.jpg)
+
+    &.theme10
+        background: url(/static/theme/backgrounds/theme10.jpg)
+
+    &.theme11
+        background: linear-gradient(180deg, #EF764B 0.02%, #FFF279 99.98%)
+
+    &.theme12
+        background: #fff
+
+    &.theme13
+        background: #FF5B5B
+
+    &.theme14
+        background: radial-gradient(134.3% 62.52% at 50% 37.47%, #D84BEF 0%, #FFB4EA 100%)
+
+    &.theme15
+        background: #39CCE0
+
+    &.theme16
+        background: #ED7EFF
+
+    &.theme17
+        background: #C4C4C4
+
+    &.theme18
+        background: url(/static/theme/backgrounds/theme18.jpg)
+
+    &.theme19
+        background: #EF764B
+
+    & .innderWrapper
+        width: 100%
+        overflow: auto
+
+    & .backgroundInner
+        width: 100%
+        position: relative
+        z-index: 2
+        display: flex
+        justify-content: center
+
+    &::before
+        content: ""
+        display: block
+        position: absolute
+        z-index: 1
+        width: 100vw
+        height: 100vh
+
+    &.withBlur::before
+
+        @include gt-sm
+            backdrop-filter: blur(10px)
+
+        @include gt-md
+            backdrop-filter: blur(30px)
+
+        @include gt-lg
+            backdrop-filter: blur(50px)
+

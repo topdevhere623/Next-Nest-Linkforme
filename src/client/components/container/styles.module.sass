@@ -1,0 +1,20 @@
+@import 'media-queries'
+
+.container
+    display: flex
+    margin: 50px
+    background: #FFFFFF
+    border-radius: 10px
+    padding: 25px 40px
+    // filter: drop-shadow(0px 6px 12px #F3DED2)
+    box-shadow: 0px 6px 12px #ddb69f7e
+    flex: 1
+    min-height: calc(100% - 100px)
+
+    .inner
+        width: 100%
+        overflow: hidden
+
+    @include xs
+        padding: 10px 15px
+        margin: 20px

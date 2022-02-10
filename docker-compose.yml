@@ -1,0 +1,28 @@
+version: '3'
+services:
+  mongo:
+    # mongodb://linkforme:asf23gsgwaeagfsaf@mongo:27017/
+    image: mongo
+    restart: always
+    ports:
+    - 27018:27017
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: linkforme
+        MONGO_INITDB_ROOT_PASSWORD: asf23gsgwaeagfsaf
+    volumes:
+    - ~/linkforme_mongo_db:/data/db
+  app:
+    image: node:lts
+    restart: always
+    ports:
+    - 3013:3000
+    entrypoint: ["/bin/sh","-c", 'cd app && yarn install && npm run start']
+    volumes:
+    - ./:/app:z
+    depends_on:
+    - mongo
+
+networks:
+  default:
+    external: true
+    name: nginx-proxy-manager_default

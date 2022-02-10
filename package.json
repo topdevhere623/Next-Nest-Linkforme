@@ -18,6 +18,8 @@
     "start:prod": "node dist/server/main",
     "start:proxy": "docker run --name nest-next-blog-proxy -v $(pwd)/nginx.conf:/etc/nginx/conf.d/default.conf:ro --add-host localnode:$(ifconfig en0 | grep inet | grep -v inet6 | awk '{print $2}') -p 8080:8080 -d nginx",
     "lint": "eslint \"{src,apps,libs,test}/**/*.tsx?\" --fix"
+  },"engines": {
+    "node": "16.x"
   },
   "dependencies": {
     "@nestjs-modules/mailer": "^1.6.0",

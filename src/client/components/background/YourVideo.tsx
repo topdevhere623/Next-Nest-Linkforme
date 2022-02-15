@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { setYourImage } from 'src/client/store/factory/actions';
+import { openSnackbar, setYourImage } from 'src/client/store/factory/actions';
 import styles from 'src/client/styles/stylesScreen.module.sass';
 import Video from '../../../assets/video.svg';
 
@@ -22,7 +22,10 @@ export default function YourVideo () {
             return;
           }
 
-          if (file) dispatch(setYourImage(file));
+          if (file) {
+            dispatch(openSnackbar('Your video has been uploaded successfully!', 'success'));
+            dispatch(setYourImage(file));
+          }
         };
 
         input.click();

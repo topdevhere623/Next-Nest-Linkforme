@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
-import { setYourImage } from 'src/client/store/factory/actions';
+import { openSnackbar, setYourImage } from 'src/client/store/factory/actions';
 import styles from 'src/client/styles/stylesScreen.module.sass';
 import Photo from '../../../assets/photo.svg';
 
@@ -17,9 +17,14 @@ export default function YourImage () {
             alert('File size is limited to 10MB')
             return;
           }
-          if (file) dispatch(setYourImage(file));
+          if (file) {
+            dispatch(openSnackbar('Your image has been uploaded successfully!', 'success'));
+            dispatch(setYourImage(file));
+          }
+          
         };
         input.click();
+        
       };
     return (
         <div className={styles.newThemeWrapper}>

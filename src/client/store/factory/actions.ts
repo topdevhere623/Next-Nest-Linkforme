@@ -3,6 +3,7 @@ import { ThunkAction } from 'redux-thunk';
 import { Field } from 'src/server/users/interfaces/user.interface';
 import { fetch } from 'src/shared/utils/fetch';
 import { v4 as uuidv4 } from 'uuid';
+import { Type } from '../../components/popup/snackbar';
 import { IStoreState } from '../reducers';
 
 export type ExtraArgument = {};
@@ -213,6 +214,31 @@ export const setBackgroundColor: ThunkCreator<Promise<any>> = (color: string) =>
   };
 }
 
+export const openSnackbar: ThunkCreator<Promise<any>> = (message: string, type: Type) => {
+  return async (dispatch: Dispatch, getState: () => IStoreState) => {
+    dispatch({
+      type: 'setSnackbar',
+      payload: { message, type, isVisible: true }
+    });
+
+    setTimeout(() => {
+      dispatch({
+        type: 'setSnackbar',
+        payload: { isVisible: false }
+      });
+    }, 4000);
+  };
+}
+
+export const closeSnackbar: ThunkCreator<Promise<any>> = () => {
+  return async (dispatch: Dispatch, getState: () => IStoreState) => {
+    dispatch({
+      type: 'setSnackbar',
+      payload: { isVisible: false }
+    });
+  };
+}
+
 export const setYourImage: ThunkCreator<Promise<any>> = (file) => {
   return async (dispatch: Dispatch, getState: () => IStoreState) => {
     let form = new FormData();
@@ -246,7 +272,7 @@ export const setYourImage: ThunkCreator<Promise<any>> = (file) => {
           'Content-Type': 'application/json',
         },
       }).catch(() => {});
-
+      
       if (!(apiResult && apiResult.theme)) {
         console.log('result', apiResult);
         alert('Cant upload theme. Try again!');

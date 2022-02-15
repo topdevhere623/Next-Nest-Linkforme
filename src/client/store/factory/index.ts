@@ -1,4 +1,5 @@
 import {Field, Theme} from 'src/server/users/interfaces/user.interface'
+import { Type } from '../../components/popup/snackbar';
 
 interface Chart {
     name: string,
@@ -24,6 +25,11 @@ export default interface ITickState {
         clicks: number,
         views: number,
         chart: Chart[]
+    }
+    snackbar: {
+        isVisible: boolean;
+        type: Type,
+        message: string
     }
     theme: Theme,
     menuIsOpen: boolean,

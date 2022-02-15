@@ -5,6 +5,7 @@ import wrapper from 'src/client/store';
 import Head from 'next/head';
 // import { AnimatePresence, motion } from 'framer-motion';
 import PopupWrapper from 'src/client/components/popup/wrapper';
+import Snackbar from '../client/components/popup/snackbar';
 
 class MyApp extends App {
   render() {
@@ -46,6 +47,7 @@ class MyApp extends App {
         {/* <AnimatePresence initial={false} exitBeforeEnter> */}
         <PopupWrapper>
           <Component {...pageProps} key={router.route} />
+          <Snackbar />
         </PopupWrapper>
         {/* </AnimatePresence> */}
       </>

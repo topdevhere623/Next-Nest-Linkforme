@@ -32,7 +32,7 @@ export default function YourVideo () {
         <div className={styles.newThemeWrapper}>
             <div className={styles.icon} onClick={openVideoDialog}>
                 <Video/>
-                <div>Your Video</div>
+                <div>Your <br></br>Video</div>
             </div>
         </div>
     )

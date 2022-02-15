@@ -14,7 +14,8 @@ import { IStoreState } from 'src/client/store/reducers';
 import styles from 'src/client/styles/stylesScreen.module.sass';
 import YourVideo from '../../client/components/background/YourVideo';
 import Theme from '../../client/static/styleSettings.svg';
-import YourImage from './YourImage';
+import YourImage from '../../client/components/background/YourImage';
+import CustomColor from '../../client/components/background/CustomColor';
 
 
 const Pro = () => <span className={styles.pro}>PRO</span>;
@@ -473,11 +474,7 @@ const StyleScreen = () => {
                   dashed
                   inactive
                 >
-                  <div className={styles.newThemeWrapper}>
-                    <div className={styles.icon}>
-                      <YourVideo />
-                    </div>
-                  </div>
+                    <YourVideo />
                 </Item>
                 <Item
                   clickHundler={() => {
@@ -547,6 +544,8 @@ const StyleScreen = () => {
                 </Item>
               </div>
             </div>
+
+            <CustomColor />
           </Container>
           <Container style={{ minHeight: 'auto' }}>
             <div style={{ width: '100%' }}>

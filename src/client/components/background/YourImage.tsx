@@ -2,13 +2,10 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { setYourImage } from 'src/client/store/factory/actions';
 import styles from 'src/client/styles/stylesScreen.module.sass';
-import Photo from '../../assets/photo.svg';
+import Photo from '../../../assets/photo.svg';
 
 export default function YourImage () {
-    const dispatch = useDispatch()
-    React.useEffect(() => {
-        console.log("Your Image Render")
-    }, [])
+    const dispatch = useDispatch();
 
     const imageDialog = () => {
         const input = document.createElement('input');
@@ -28,7 +25,7 @@ export default function YourImage () {
         <div className={styles.newThemeWrapper}>
             <div className={styles.icon} onClick={imageDialog}>
                 <Photo/>
-                <div>Your Image</div>
+                <div>Your <br></br>Image</div>
             </div>
         </div>
     )

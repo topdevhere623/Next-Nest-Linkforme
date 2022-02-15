@@ -185,6 +185,34 @@ export const setThumbPic: ThunkCreator<Promise<any>> = (
   };
 };
 
+export const setBackgroundColor: ThunkCreator<Promise<any>> = (color: string) => {
+  return async (dispatch: Dispatch, getState: () => IStoreState) => {
+    const theme = {
+      custom: {
+        backgroundColor: color
+      },
+    };
+
+    dispatch({
+      type: 'setTheme',
+      payload: theme,
+    });
+
+    let apiResult = await fetch('/api/setTheme', {
+      method: 'POST',
+      body: JSON.stringify({ newTheme: theme }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).catch(() => {});
+
+    if (!(apiResult && apiResult.theme)) {
+      console.log('result', apiResult);
+      alert('Cant upload theme. Try again!');
+    }
+  };
+}
+
 export const setYourImage: ThunkCreator<Promise<any>> = (file) => {
   return async (dispatch: Dispatch, getState: () => IStoreState) => {
     let form = new FormData();

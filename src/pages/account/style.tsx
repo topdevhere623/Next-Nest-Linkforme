@@ -12,9 +12,8 @@ import wrapper from 'src/client/store';
 import { setTheme } from 'src/client/store/factory/actions';
 import { IStoreState } from 'src/client/store/reducers';
 import styles from 'src/client/styles/stylesScreen.module.sass';
-// import YourImage from '../../client/static/image.svg';
+import YourVideo from '../../client/components/background/YourVideo';
 import Theme from '../../client/static/styleSettings.svg';
-import YourVideo from '../../client/static/video.svg';
 import YourImage from './YourImage';
 
 
@@ -464,7 +463,6 @@ const StyleScreen = () => {
                   dashed
                   inactive
                 >
-                  {/* <YourImage width={25} height={22} fill="#000" /> */}
                   <YourImage/>
                 </Item>
                 <Item
@@ -477,9 +475,8 @@ const StyleScreen = () => {
                 >
                   <div className={styles.newThemeWrapper}>
                     <div className={styles.icon}>
-                      <YourVideo width={25} height={22} fill="#000" />
+                      <YourVideo />
                     </div>
-                    <div>Your Video</div>
                   </div>
                 </Item>
                 <Item

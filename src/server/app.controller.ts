@@ -40,7 +40,7 @@ export class AppController {
     return new Promise(resolve => {
       req.pipe(req.busboy);
       req.busboy.on('file',  (fieldname:string, file:any, filename:string, encoding:any, mimetype:string) => {
-        const type = filename.match(/.(jpg|jpeg|png|gif)$/g);
+        const type = filename.match(/.(jpg|jpeg|png|gif|mp4)$/g);
         
         if(!type) return {}
         
@@ -242,7 +242,7 @@ export class AppController {
     }
     return {}
   }
-
+  
   @UseGuards(JwtAuthGuard)
   @Get('/api/getAnalytics')
   async getAnalytics(@Req() req:Request): Promise<IErr | any> {

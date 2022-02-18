@@ -17,6 +17,10 @@ export default function Background({ children, style, withBlur }: IProps) {
     return theme.custom?.background?.endsWith('.mp4');
   };
 
+  const isPattern = (background: string) => {
+    return ['doodle', 'gradient', 'polka', 'stripe', 'waves', 'zig-zag'].includes(background.split('.')[0]);
+  };
+
   console.log('Background theme !', theme);
 
   return (
@@ -31,7 +35,7 @@ export default function Background({ children, style, withBlur }: IProps) {
                 process.env.NEXT_PUBLIC_NODE_ENV === 'dev'
                   ? 'http://localhost:3000'
                   : 'http://link-for-me.herokuapp.com'
-              }/file/${theme.custom?.background})`,
+              }${isPattern(theme.custom.background) ? `/static/theme/${theme.custom.background}` : `/file/${theme.custom.background})`}`,
             }
           : {
             backgroundColor: theme.custom?.backgroundColor || '#fff'

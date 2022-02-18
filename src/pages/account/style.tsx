@@ -478,7 +478,13 @@ const StyleScreen = () => {
                 </Item>
                 <Item
                   clickHundler={() => {
-                    return;
+                    dispatch(
+                      setTheme({
+                        custom: {
+                          background: 'gradient.jpg'
+                        },
+                      }),
+                    );
                   }}
                   nameTheme="Gradient"
                   inactive
@@ -489,7 +495,13 @@ const StyleScreen = () => {
                 </Item>
                 <Item
                   clickHundler={() => {
-                    return;
+                    dispatch(
+                      setTheme({
+                        custom: {
+                          background: 'waves.jpg'
+                        },
+                      }),
+                    );
                   }}
                   nameTheme="Waves"
                   inactive
@@ -500,7 +512,13 @@ const StyleScreen = () => {
                 </Item>
                 <Item
                   clickHundler={() => {
-                    return;
+                    dispatch(
+                      setTheme({
+                        custom: {
+                          background: 'zig-zag.jpg'
+                        },
+                      }),
+                    );
                   }}
                   nameTheme="Zig Zag"
                   inactive
@@ -511,7 +529,13 @@ const StyleScreen = () => {
                 </Item>
                 <Item
                   clickHundler={() => {
-                    return;
+                    dispatch(
+                      setTheme({
+                        custom: {
+                          background: 'polka.jpg'
+                        },
+                      }),
+                    );
                   }}
                   nameTheme="Polka"
                   inactive
@@ -522,7 +546,13 @@ const StyleScreen = () => {
                 </Item>
                 <Item
                   clickHundler={() => {
-                    return;
+                    dispatch(
+                      setTheme({
+                        custom: {
+                          background: 'stripe.jpg'
+                        },
+                      }),
+                    );
                   }}
                   nameTheme="Stripe"
                   inactive
@@ -533,7 +563,13 @@ const StyleScreen = () => {
                 </Item>
                 <Item
                   clickHundler={() => {
-                    return;
+                    dispatch(
+                      setTheme({
+                        custom: {
+                          background: 'doodle.jpg'
+                        },
+                      }),
+                    );
                   }}
                   nameTheme="Doodle"
                   inactive

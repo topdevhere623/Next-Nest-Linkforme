@@ -214,20 +214,18 @@ export const setBackgroundColor: ThunkCreator<Promise<any>> = (color: string) =>
   };
 }
 
-export const openSnackbar: ThunkCreator<Promise<any>> = (message: string, type: Type) => {
-  return async (dispatch: Dispatch, getState: () => IStoreState) => {
+export const openSnackbar = (dispatch: Dispatch, message: string, type: Type) => {
+  dispatch({
+    type: 'setSnackbar',
+    payload: { message, type, isVisible: true }
+  });
+
+  setTimeout(() => {
     dispatch({
       type: 'setSnackbar',
-      payload: { message, type, isVisible: true }
+      payload: { isVisible: false }
     });
-
-    setTimeout(() => {
-      dispatch({
-        type: 'setSnackbar',
-        payload: { isVisible: false }
-      });
-    }, 4000);
-  };
+  }, 4000);
 }
 
 export const closeSnackbar: ThunkCreator<Promise<any>> = () => {
@@ -245,10 +243,7 @@ export const setYourImage: ThunkCreator<Promise<any>> = (file) => {
     form.append('file', file);
     let result = await fetch('/api/setYourImage', {
       method: 'POST',
-      body: form,
-      headers: {
-        // 'Content-Type': 'application/x-www-form-urlencoded'
-      },
+      body: form
     }).catch(() => {});
 
     if (result && result.filename) {
@@ -264,6 +259,53 @@ export const setYourImage: ThunkCreator<Promise<any>> = (file) => {
         type: 'setTheme',
         payload: theme,
       });
+
+      openSnackbar(dispatch, 'Your image has been uploaded successfully', 'success');
+
+      let apiResult = await fetch('/api/setTheme', {
+        method: 'POST',
+        body: JSON.stringify({ newTheme: theme }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).catch(() => {});
+      
+      if (!(apiResult && apiResult.theme)) {
+        console.log('result', apiResult);
+        alert('Cant upload theme. Try again!');
+      }
+    } else {
+      console.log('result', result);
+      alert('Cant upload thumb. Try again!');
+    }
+  };
+};
+
+export const setYourVideo: ThunkCreator<Promise<any>> = (file) => {
+  return async (dispatch: Dispatch, getState: () => IStoreState) => {
+    let form = new FormData();
+    form.append('file', file);
+
+    let result = await fetch('/api/setYourImage', {
+      method: 'POST',
+      body: form
+    }).catch(() => {});
+
+    if (result && result.filename) {
+      console.log('result!!! :::', result);
+
+      const theme = {
+        custom: {
+          background: result.filename,
+        },
+      };
+
+      dispatch({
+        type: 'setTheme',
+        payload: theme,
+      });
+
+      openSnackbar(dispatch, 'Your video has been uploaded successfully', 'success');
 
       let apiResult = await fetch('/api/setTheme', {
         method: 'POST',

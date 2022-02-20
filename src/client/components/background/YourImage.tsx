@@ -9,10 +9,15 @@ export default function YourImage () {
 
     const imageDialog = () => {
         const input = document.createElement('input');
+
         input.type = 'file';
-        input.accept = 'image/png, image/gif, image/jpeg, image/svg';
+        input.accept = '.png,.gif,.jpg,.jpeg,.svg';
+        // input.accept = 'image/png, image/gif, image/jpeg, image/svg';
+
         input.onchange = (e: any) => {
           const file = e.target.files[0];
+          console.log(file);
+
           if(file?.size > 10000000){
             alert('File size is limited to 10MB')
             return;

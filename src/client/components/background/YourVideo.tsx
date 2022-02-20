@@ -11,9 +11,14 @@ export default function YourVideo () {
         const input = document.createElement('input');
 
         input.type = 'file';
+
         input.accept = 'video/mp4';
 
-        input.onchange = (event: any) => {
+        input.style.display = 'none';
+
+        document.body.appendChild(input);
+
+        input.addEventListener('change', (event: any) => {
           const file = event.target.files[0];
 
           if(file?.size > 10000000){
@@ -25,7 +30,7 @@ export default function YourVideo () {
           if (file) {
             dispatch(setYourVideo(file));
           }
-        };
+        });
 
         input.click();
     };

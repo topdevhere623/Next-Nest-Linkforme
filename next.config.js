@@ -6,6 +6,6 @@ module.exports = {
     includePaths: [path.join(__dirname, 'src/client/styles')],
   },
   images: {
-    domains: ['localhost', 'link-for-me.herokuapp.com', 'linkmefor.com'],
+    domains: ['localhost', 'link-for-me-test.herokuapp.com', 'linkmefor.com'],
   },
 };

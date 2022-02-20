@@ -44,7 +44,7 @@ export default function Background({ children, style, withBlur }: IProps) {
     >
       { theme.custom?.background && isVideo() ? 
               <video className={styles.video} key={theme.custom?.background} autoPlay={true} loop={true} muted>
-                <source src={ process.env.NEXT_PUBLIC_NODE_ENV === 'dev' ? 'http://localhost:3000' : `http://link-for-me.herokuapp.com/file/${theme.custom?.background}`} />
+                <source src={ process.env.NEXT_PUBLIC_NODE_ENV === 'dev' ? 'http://localhost:3000' : `http://link-for-me-test.herokuapp.com/file/${theme.custom?.background}`} />
               </video>
 
           : ''

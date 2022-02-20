@@ -453,7 +453,7 @@ const StyleScreen = () => {
           <Container style={{ minHeight: 'auto' }}>
             <div style={{ width: '100%' }}>
               <h1>
-                Backgrounds <Pro />
+                Backgrounds
               </h1>
               <div className={styles.grid}>
                 <Item

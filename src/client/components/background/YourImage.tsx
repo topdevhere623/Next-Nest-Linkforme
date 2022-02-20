@@ -6,17 +6,21 @@ import Photo from '../../../assets/photo.svg';
 
 export default function YourImage () {
     const dispatch = useDispatch();
+    const container = React.useRef<HTMLDivElement>(null);
 
     const imageDialog = () => {
         const input = document.createElement('input');
 
         input.type = 'file';
-        input.accept = '.png,.gif,.jpg,.jpeg,.svg';
-        // input.accept = 'image/png, image/gif, image/jpeg, image/svg';
 
-        input.onchange = (e: any) => {
-          const file = e.target.files[0];
-          console.log(file);
+        input.accept = 'image/png, image/gif, image/jpeg, image/svg';
+
+        input.style.display = 'none';
+        
+        container.current?.appendChild(input);
+
+        input.addEventListener('change', (event: any) => {
+          const file = event.target.files[0];
 
           if(file?.size > 10000000){
             alert('File size is limited to 10MB')
@@ -25,13 +29,24 @@ export default function YourImage () {
           if (file) {
             dispatch(setYourImage(file));
           }
-          
-        };
+        });
+
+        // input.onchange = (e: any) => {
+        //   const file = e.target.files[0];
+
+        //   if(file?.size > 10000000){
+        //     alert('File size is limited to 10MB')
+        //     return;
+        //   }
+        //   if (file) {
+        //     dispatch(setYourImage(file));
+        //   }
+        // };
+
         input.click();
-        
       };
     return (
-        <div className={styles.newThemeWrapper}>
+        <div className={styles.newThemeWrapper} ref={container}>
             <div className={styles.icon} onClick={imageDialog}>
                 <Photo/>
                 <div>Your <br></br>Image</div>

@@ -34,7 +34,7 @@ export default function Background({ children, style, withBlur }: IProps) {
               backgroundImage: `url(${
                 process.env.NEXT_PUBLIC_NODE_ENV === 'dev'
                   ? 'http://localhost:3000'
-                  : 'http://link-for-me.herokuapp.com'
+                  : 'http://link-for-me-test.herokuapp.com'
               }${isPattern(theme.custom.background) ? `/static/theme/${theme.custom.background}` : `/file/${theme.custom.background})`}`,
             }
           : {

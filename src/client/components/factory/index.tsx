@@ -228,7 +228,7 @@ export default function Factory({
                   ? `${
                       process.env.NEXT_PUBLIC_NODE_ENV === 'dev'
                         ? 'http://localhost:3000'
-                        : 'http://branch.linkmefor.com'
+                        : 'http://link-for-me-test.herokuapp.com'
                     }/file/${avatar}`
                   : '/static/user.svg'
               }

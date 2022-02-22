@@ -3,6 +3,7 @@ import { ThunkAction } from 'redux-thunk';
 import { Field } from 'src/server/users/interfaces/user.interface';
 import { fetch } from 'src/shared/utils/fetch';
 import { v4 as uuidv4 } from 'uuid';
+import { Type } from '../../components/popup/snackbar';
 import { IStoreState } from '../reducers';
 
 export type ExtraArgument = {};
@@ -185,16 +186,64 @@ export const setThumbPic: ThunkCreator<Promise<any>> = (
   };
 };
 
+export const setBackgroundColor: ThunkCreator<Promise<any>> = (color: string) => {
+  return async (dispatch: Dispatch, getState: () => IStoreState) => {
+    const theme = {
+      custom: {
+        backgroundColor: color
+      },
+    };
+
+    dispatch({
+      type: 'setTheme',
+      payload: theme,
+    });
+
+    let apiResult = await fetch('/api/setTheme', {
+      method: 'POST',
+      body: JSON.stringify({ newTheme: theme }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).catch(() => {});
+
+    if (!(apiResult && apiResult.theme)) {
+      console.log('result', apiResult);
+      alert('Cant upload theme. Try again!');
+    }
+  };
+}
+
+export const openSnackbar = (dispatch: Dispatch, message: string, type: Type) => {
+  dispatch({
+    type: 'setSnackbar',
+    payload: { message, type, isVisible: true }
+  });
+
+  setTimeout(() => {
+    dispatch({
+      type: 'setSnackbar',
+      payload: { isVisible: false }
+    });
+  }, 4000);
+}
+
+export const closeSnackbar: ThunkCreator<Promise<any>> = () => {
+  return async (dispatch: Dispatch, getState: () => IStoreState) => {
+    dispatch({
+      type: 'setSnackbar',
+      payload: { isVisible: false }
+    });
+  };
+}
+
 export const setYourImage: ThunkCreator<Promise<any>> = (file) => {
   return async (dispatch: Dispatch, getState: () => IStoreState) => {
     let form = new FormData();
     form.append('file', file);
     let result = await fetch('/api/setYourImage', {
       method: 'POST',
-      body: form,
-      headers: {
-        // 'Content-Type': 'application/x-www-form-urlencoded'
-      },
+      body: form
     }).catch(() => {});
 
     if (result && result.filename) {
@@ -211,6 +260,8 @@ export const setYourImage: ThunkCreator<Promise<any>> = (file) => {
         payload: theme,
       });
 
+      openSnackbar(dispatch, 'Your image has been uploaded successfully', 'success');
+
       let apiResult = await fetch('/api/setTheme', {
         method: 'POST',
         body: JSON.stringify({ newTheme: theme }),
@@ -218,7 +269,52 @@ export const setYourImage: ThunkCreator<Promise<any>> = (file) => {
           'Content-Type': 'application/json',
         },
       }).catch(() => {});
+      
+      if (!(apiResult && apiResult.theme)) {
+        console.log('result', apiResult);
+        alert('Cant upload theme. Try again!');
+      }
+    } else {
+      console.log('result', result);
+      alert('Cant upload thumb. Try again!');
+    }
+  };
+};
 
+export const setYourVideo: ThunkCreator<Promise<any>> = (file) => {
+  return async (dispatch: Dispatch, getState: () => IStoreState) => {
+    let form = new FormData();
+    form.append('file', file);
+
+    let result = await fetch('/api/setYourImage', {
+      method: 'POST',
+      body: form
+    }).catch(() => {});
+
+    if (result && result.filename) {
+      console.log('result!!! :::', result);
+
+      const theme = {
+        custom: {
+          background: result.filename,
+        },
+      };
+
+      dispatch({
+        type: 'setTheme',
+        payload: theme,
+      });
+
+      openSnackbar(dispatch, 'Your video has been uploaded successfully', 'success');
+
+      let apiResult = await fetch('/api/setTheme', {
+        method: 'POST',
+        body: JSON.stringify({ newTheme: theme }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }).catch(() => {});
+      
       if (!(apiResult && apiResult.theme)) {
         console.log('result', apiResult);
         alert('Cant upload theme. Try again!');

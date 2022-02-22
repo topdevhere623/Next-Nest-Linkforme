@@ -83,7 +83,7 @@ export class AuthService {
     if(!existUser) return {success: false}
     const uuid = uuidv4();
     const newPassword = generatePassword();
-    const link = `${process.env.NEXT_PUBLIC_NODE_ENV === 'dev' ? 'http://localhost:3000' : 'https://branch.linkmefor.com'}/restore/${uuid}`;
+    const link = `${process.env.NEXT_PUBLIC_NODE_ENV === 'dev' ? 'http://localhost:3000' : 'https://link-for-me.herokuapp.com'}/restore/${uuid}`;
     this.mailerService
       .sendMail({
         to: user.email, // list of receivers

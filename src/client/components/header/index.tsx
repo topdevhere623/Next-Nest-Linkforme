@@ -58,7 +58,7 @@ export default function Header({ menuIsOpen = true, setMenuOpen }: IProps) {
         `${
           process.env.NEXT_PUBLIC_NODE_ENV === 'dev'
             ? 'http://localhost:3000'
-            : 'http://branch.linkmefor.com'
+            : 'http://link-for-me-test.herokuapp.com'
         }/${link}`,
       );
     }, 1000);

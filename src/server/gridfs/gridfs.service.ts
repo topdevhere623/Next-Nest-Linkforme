@@ -24,11 +24,8 @@ export class FilesService {
     }
 
     createWriteStream(type: string) {
-
         return this.fileModelStream.createWriteStream({
             filename: uuidv4() + type,
         });
     }
-
-
 }

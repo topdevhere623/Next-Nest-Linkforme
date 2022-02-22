@@ -119,7 +119,7 @@ export default function Button({ data, theme, editing, music }: IProps) {
               src={`${
                 process.env.NEXT_PUBLIC_NODE_ENV === 'dev'
                   ? 'http://localhost:3000'
-                  : 'http://branch.linkmefor.com'
+                  : 'http://link-for-me-test.herokuapp.com'
               }/file/${data.thumbPic}`}
               layout="fill"
             />

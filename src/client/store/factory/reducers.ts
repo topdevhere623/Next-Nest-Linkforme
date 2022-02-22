@@ -33,6 +33,11 @@ const initialState: IFactoryState = {
             fontFamily: '',
         }
     },
+    snackbar: {
+        isVisible: false,
+        type: 'success',
+        message: ''
+    },
     menuIsOpen: true,
     menuSetupOnce: false
 };
@@ -40,7 +45,6 @@ const initialState: IFactoryState = {
 interface DinamicObj {
   [name: string]: any;
 }
-
 
 export function factory(state: IFactoryState = initialState, action: AnyAction): IFactoryState {
     switch (action.type) {
@@ -56,6 +60,8 @@ export function factory(state: IFactoryState = initialState, action: AnyAction):
             return {...state, popup: {...state.popup, ...action.payload}};
         case 'setUser':
             return {...state, user: {...state.user, ...action.payload}};
+        case 'setSnackbar':
+            return {...state, snackbar: {...state.snackbar, ...action.payload}};
         case 'setFields':
             return {...state, fields: action.payload};
         case 'setEditFields':
